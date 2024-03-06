@@ -1,0 +1,20 @@
+{
+  "title": "Alex Viño | Frontend Developer",
+  "aboutMe": {
+    "presentation": "Hello, I'm Alex Viño",
+    "description": "Frontend developer who aims to create delightful and functional websites. Detail oriented and fast learner. Love to try out and experiment with new technologies and tools."
+  },
+  "experience": {
+    "description": "years of experience"
+  },
+  "github": {
+    "description": "Check out my work and projects on Github"
+  },
+  "spotify": {
+    "recently": "Recently played"
+  },
+  "loading": "Loading...",
+  "weather": {
+    "location": "Santiago de Compostela, ES"
+  }
+}

@@ -1,0 +1,51 @@
+---
+title: Time to move to Vite
+publishedDate: "09/25/2023 19:07:00"
+lastUpdatedDate: "09/25/2023 19:07:00"
+tags:
+  - "vite"
+  - "technology"
+  - "javascript"
+  - "frontend"
+  - "development"
+  - "opinion"
+description: Dive into Vite.js, a game-changer in developer experience of modern web apps. Continue reading for a quick introduction of Vite.js, a build tool and development server renowned for its blazing speed and efficiency. Learn how it can streamline your development workflow and supercharge your web projects.
+status: published
+---
+
+If you're a web developer you probably heard about [Vite](https://vitejs.dev/). In this post I'll explain what it is and why you should consider using it.
+
+## What is Vite?
+Vite is a tool created by Evan You (creator of Vue.js) with a focus on simplifying and speed-up the development. It consists of two parts:
+- A development server that provides feature enhancements over native ES modules: lightning fast Hot Module Replacement (HMR), pre-bundling, support for TypeScript, JSX, TSX and dynamic imports.
+- A build command that bundles code with Rollup and outputs optimized static assets for production.
+
+<Note>
+  **Note**: ES modules are a standard for modularizing JavaScript code. They became available in ES2015 and are supported by all modern browsers. You can read more about them [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules). 
+</Note>
+
+## Why Vite?
+Before ES modules became available, developers had no way to modularize a JavaScript app in a native way. Tools like Webpack, Rollup or Parcel, helped us with this but problems started to appear when applications became larger and complex. Long waiting times to run a dev server or edit files are common in these cases.
+
+So here is when Vite enters the scene. By making use of native ESM it improves server start time and also HMR time.
+
+**Server start**: Usually when starting a dev server all the files of your application are bundled and served. Vite takes a different approach, it divides the modules in two categories:
+- *Dependencies*. Vite pre-bundles these using [esbuild](https://esbuild.github.io/) (a Go-written bundler 10-100x times faster than JavaScript-written ones)
+- *Source code*. Vite serves it over native ESM, this means that the browser does a part of the job of a classic bundler. This way Vite only needs to transform and serve source code when the browser requests it.
+
+**Updates with HMR**: Vite uses native ESM for HMR as well. This, in contrast to other methods, means that only a limited portion of the dependency chain is invalidated, leading to non-expanding HMR times as the application gains complexity.
+
+## Bundling for production
+Vite still bundles your code for production. The reason behind this is that despite the widespread support for native ESM, deploying unbundled ESM in production remains inefficient.
+
+However, Vite does count with a pre-configured build command with multiple optimizations:
+- *CSS code splitting*: CSS used by modules in async chunks is extracted and then a separate file is generated for it. This way, the CSS is loaded before the async chunk avoiding FUOC (flash of unstyled content).
+- *Preload Directives Generation*: generating `<link rel="modulepreload">` directives for entry chunks and their direct imports improves the loading performance of the app by instructing the browser to load the modules before they are requested.
+- *Async Chunk Loading Optimization*: Rollup often generates "common" chunks shared by 2 or more other chunks which, in combination with dynamic imports, form the following scenario: <div className="w-full flex justify-center"><Image src='/images/async_chunk_loading.svg' alt='async chunk loading source:"vitejs.org"' width={685} height={246} style={{width: '90%', height: 'auto'}} /></div> So, in non-optimized scenarios, the browser will request and parse chunk A before knowing that it also needs chunk C: `Entry ---> A ---> C`. But what Vite does in this case is transforming the dynamic imports that split code in a process where, when A is fetched, C is also fetched simultaneously: `Entry ---> (A + C)`
+
+## Simple setup
+Getting started with Vite is super straightforward, you only need to install it with:
+```bash
+npm create vite@latest
+```
+Then follow the prompts and you'll be ready to go. For more information about the installation process you can check the [official documentation](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
