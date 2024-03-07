@@ -1,4 +1,3 @@
-import { NextApiResponse } from 'next';
 import { NextResponse } from 'next/server';
 import SpotifyWebApi from 'spotify-web-api-node';
 
@@ -24,4 +23,4 @@ export async function GET() {
   }
 }
 
-export const revalidate = 0;
+export const revalidate = 60 * 3; // 3 minutes
