@@ -1,30 +1,4 @@
-import { IconSlider } from '../IconSlider';
-import { CypressIcon } from '../icons/CypressIcon';
-import { GitHubIcon } from '../icons/GitHubIcon';
-import { GoIcon } from '../icons/GoIcon';
-import { JestIcon } from '../icons/JestIcon';
-import { LinkedInIcon } from '../icons/LinkedInIcon';
-import { MailIcon } from '../icons/MailIcon';
-import { NextjsIcon } from '../icons/Nextjs';
-import { ReactIcon } from '../icons/ReactIcon';
-import { ReactQueryIcon } from '../icons/ReactQueryIcon';
-import { TailwindCSSIcon } from '../icons/TailwindCSSIcon';
-import { TestingLibraryIcon } from '../icons/TestingLibraryIcon';
-import { TypeScriptIcon } from '../icons/TypeScript';
-import { ViteIcon } from '../icons/ViteIcon';
-
-const LOGOS = [
-  <TypeScriptIcon key="TypeScript" width={24} height={24} />,
-  <ReactIcon key="React" width={24} height={24} />,
-  <ViteIcon key="Vite" width={24} height={24} />,
-  <NextjsIcon key="Next.js" width={54} height={54} />,
-  <ReactQueryIcon key="React Query" width={96} height={96} />,
-  <TailwindCSSIcon key="TailwindCSS" width={96} height={96} />,
-  <JestIcon key="Jest" width={24} height={24} />,
-  <TestingLibraryIcon key="Testing Library" width={24} height={24} />,
-  <CypressIcon key="Cypress" width={54} height={54} />,
-  <GoIcon key="Go" width={36} height={36} />,
-];
+import { GitHubIcon, LinkedInIcon, MailIcon } from '../icons';
 
 export function AboutMe() {
   return (
@@ -39,8 +13,8 @@ export function AboutMe() {
             href="https://www.linkedin.com/in/alexvloure"
             target="_blank"
             rel="noreferrer noopener"
-            className="text-[var(--foreground)] underline underline-offset-2 decoration-[var(--accent)]">
-            2 years of experience
+            className="text-[var(--foreground)] underline underline-offset-[3px] decoration-[var(--accent)]">
+            2 and a half years of experience
           </a>
           , I&apos;m a frontend developer who aims to create delightful and
           functional websites.
@@ -49,10 +23,16 @@ export function AboutMe() {
           Detail oriented and fast learner. Love to try out and experiment with
           new technologies and tools.
         </p>
-        <div>
-          <p className="text-gray-600">Tech stack I usually work with: </p>
-          <IconSlider icons={LOGOS} />
-        </div>
+        <p className="text-gray-600">
+          I&apos;m currently studying a bachelor&apos;s degree in{' '}
+          <a
+            href="https://www.uoc.edu/en/studies/bachelors-degrees/bachelors-degree-software-development"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="text-[var(--foreground)] underline underline-offset-[3px] decoration-[var(--accent)]">
+            Computer Science at the UOC
+          </a>
+        </p>
       </div>
       <div className="flex flex-col items-end gap-2 place-self-end">
         <p className="text-[12px] font-semibold">REACH ME AT</p>

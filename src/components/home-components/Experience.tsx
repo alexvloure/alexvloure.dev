@@ -1,4 +1,3 @@
-import { ScreenIcon } from '../icons/ScreenIcon';
 import { ExperienceItem } from './ExperienceItem';
 
 const experience = [
@@ -29,7 +28,7 @@ export function Experience() {
     <div className="order-3 col-span-12 xl:col-span-4 border-x border-t xl:border-r xl:border-l-0 xl:border-y-0 border-gray-30 dark:border-gray-700 px-6 py-8 bg-dotted-light dark:bg-dotted-dark">
       <div className="flex flex-col gap-4 overflow-hidden">
         <div className="flex items-center gap-2">
-          <h4 className="uppercase mt-1 text-[12px] font-semibold text-[var(--accent)]">
+          <h4 className="uppercase text-[12px] font-semibold text-[var(--accent)]">
             recent work experience
           </h4>
         </div>

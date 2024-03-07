@@ -7,12 +7,12 @@ import { useEffect, useRef } from 'react';
 export function Globe() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const { resolvedTheme } = useTheme();
+  const phi = useRef<number>(0);
+  const pause = useRef<boolean>(false);
 
   useEffect(() => {
     if (resolvedTheme && canvasRef.current) {
-      let phi = 4.7;
       let width = canvasRef.current.offsetWidth;
-      let height = canvasRef.current.offsetHeight * 2;
 
       const onResize = () =>
         canvasRef.current && (width = canvasRef.current.offsetWidth);
@@ -36,10 +36,10 @@ export function Globe() {
         offset: [0, 900],
         markers: [{ location: [42.55357, -8.98981], size: 0.05 }],
         onRender: (state) => {
-          // Called on every animation frame.
-          // `state` will be an empty object, return updated params.
-          state.phi = phi;
-          phi += 0.005;
+          state.phi = phi.current;
+          if (!pause.current) {
+            phi.current += 0.005;
+          }
           state.width = width * 2;
           state.height = width * 2;
           state.offset = [0, width * 2.2];
@@ -55,6 +55,8 @@ export function Globe() {
 
   return (
     <canvas
+      onMouseEnter={() => (pause.current = true)}
+      onMouseLeave={() => (pause.current = false)}
       ref={canvasRef}
       style={{
         width: '100%',

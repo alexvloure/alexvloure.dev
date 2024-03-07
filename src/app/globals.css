@@ -29,15 +29,6 @@ html, body {
   color: var(--background);
 }
 
-/* Progress bar styles */
-.light #nprogress .bar {
-  background: #EF4742;
-}
-.dark #nprogress .bar {
-  background: #8344E7;
-}
-
-
 /*  */
 #logo {
 		fill-opacity: 0;

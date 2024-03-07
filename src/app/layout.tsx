@@ -1,13 +1,9 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
-import localFont from 'next/font/local';
 import ProvidersWrapper from './ProvidersWrapper';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-
-const montserrat = Montserrat({ subsets: ['latin'] });
-const mersad = localFont({ src: '../assets/fonts/Mersad.ttf' });
+import { mersad } from '../styles/fonts';
 
 export const metadata: Metadata = {
   title: 'alexvloure | Frontend developer',

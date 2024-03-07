@@ -1,7 +1,7 @@
 import { AboutMe } from '@/components/home-components/AboutMe';
 import { Experience } from '@/components/home-components/Experience';
 import Header from '@/components/home-components/Header';
-import { LocationInfo } from '@/components/home-components/LocationInfo';
+import { InfoPanel } from '@/components/home-components/InfoPanel';
 import { Portrait } from '@/components/home-components/Portrait';
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
       </div>
       <div className="border-b border-gray-30 dark:border-gray-700">
         <div className="mx-auto grid max-w-[90rem] grid-cols-12 px-2 xs:px-6 sm:px-10 xl:px-10">
-          <LocationInfo />
+          <InfoPanel />
         </div>
       </div>
     </div>

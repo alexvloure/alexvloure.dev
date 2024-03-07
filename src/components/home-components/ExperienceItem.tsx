@@ -47,7 +47,7 @@ export function ExperienceItem({
         />
         <div className="flex flex-col gap-2">
           {highlights.map((highlight, index) => (
-            <p key={index} className="text-xs text-gray-600">
+            <p key={index} className="text-[13px] text-gray-600">
               {' '}
               • {highlight}
             </p>
