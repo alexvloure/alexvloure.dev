@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import alexvloure_waving from '@/assets/images/alexvloure-waving_upscaled.webp';
-import alexvloure from '@/assets/images/alexvloure2.webp';
+import alexvloure_waving from '@/assets/images/alexvloure-waving_upscaled.avif';
 
 export function Portrait() {
   return (
@@ -8,7 +7,6 @@ export function Portrait() {
       <div className="relative">
         <Image
           src={alexvloure_waving}
-          // src={alexvloure}
           priority={true}
           alt="Alexvloure image"
           className="object-cover object-center rounded-3xl max-w-[200px] md:max-w-full grayscale z-10"
