@@ -35,7 +35,6 @@ export default function Header() {
                   fill="currentColor"
                   stroke="currentColor"
                   strokeWidth={0.3}
-                  aria-label="alexvloure"
                 />
               </svg>
             </div>

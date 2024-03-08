@@ -39,6 +39,7 @@ export function AboutMe() {
         <div className="flex gap-2">
           <a
             href="mailto:alejandrovloure@gmail.com"
+            aria-label="Send me an email"
             className="p-2 rounded-xl border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer">
             <MailIcon width={20} height={20} />
           </a>
@@ -46,6 +47,7 @@ export function AboutMe() {
             href="https://linkedin.com/in/alexvloure"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Go to my LinkedIn profile"
             className="p-2 rounded-xl border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer">
             <LinkedInIcon width={20} height={20} />
           </a>
@@ -53,6 +55,7 @@ export function AboutMe() {
             href="https://github.com/alexvloure"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Go to my GitHub profile"
             className="p-2 rounded-xl border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer">
             <GitHubIcon width={20} height={20} />
           </a>
