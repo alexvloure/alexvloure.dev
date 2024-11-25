@@ -1,4 +1,4 @@
-import { GitHubIcon, LinkedInIcon, MailIcon } from '../icons';
+import { GitHubIcon, LinkedInIcon, MailIcon } from "../icons";
 
 export function AboutMe() {
   return (
@@ -8,13 +8,14 @@ export function AboutMe() {
           About me
         </h4>
         <p className="text-gray-600">
-          With over{' '}
+          With{" "}
           <a
             href="https://www.linkedin.com/in/alexvloure"
             target="_blank"
             rel="noreferrer noopener"
-            className="text-[var(--foreground)] underline underline-offset-[3px] decoration-[var(--accent)]">
-            2 and a half years of experience
+            className="text-[var(--foreground)] underline underline-offset-[3px] decoration-[var(--accent)]"
+          >
+            +3 years of experience
           </a>
           , I&apos;m a frontend developer who aims to create delightful and
           functional websites.
@@ -24,12 +25,13 @@ export function AboutMe() {
           new technologies and tools.
         </p>
         <p className="text-gray-600">
-          I&apos;m currently studying a bachelor&apos;s degree in{' '}
+          I&apos;m currently studying a bachelor&apos;s degree in{" "}
           <a
             href="https://www.uoc.edu/en/studies/bachelors-degrees/bachelors-degree-software-development"
             target="_blank"
             rel="noreferrer noopener"
-            className="text-[var(--foreground)] underline underline-offset-[3px] decoration-[var(--accent)]">
+            className="text-[var(--foreground)] underline underline-offset-[3px] decoration-[var(--accent)]"
+          >
             Computer Science at the UOC
           </a>
         </p>
@@ -40,7 +42,8 @@ export function AboutMe() {
           <a
             href="mailto:alejandrovloure@gmail.com"
             aria-label="Send me an email"
-            className="p-2 rounded-xl border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer">
+            className="p-2 rounded-xl border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer"
+          >
             <MailIcon width={20} height={20} />
           </a>
           <a
@@ -48,7 +51,8 @@ export function AboutMe() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Go to my LinkedIn profile"
-            className="p-2 rounded-xl border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer">
+            className="p-2 rounded-xl border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer"
+          >
             <LinkedInIcon width={20} height={20} />
           </a>
           <a
@@ -56,7 +60,8 @@ export function AboutMe() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Go to my GitHub profile"
-            className="p-2 rounded-xl border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer">
+            className="p-2 rounded-xl border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer"
+          >
             <GitHubIcon width={20} height={20} />
           </a>
         </div>

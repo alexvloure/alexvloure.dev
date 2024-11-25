@@ -1,24 +1,23 @@
-import { ExperienceItem } from './ExperienceItem';
+import { ExperienceItem } from "./ExperienceItem";
 
 const experience = [
   {
-    image: '/images/deus.png',
-    company: 'DEUS: human(ity)-centered AI',
-    position: 'Frontend Developer',
-    date: '05/2022 - Present',
+    image: "/images/mca.webp",
+    company: "MCA Groupe",
+    position: "Frontend Engineer",
+    date: "04/2024 - Present",
     highlights: [
-      'Collaborated in successfully launching a service to allow users easily extract info from multiple huge pdf documents by asking questions to them using AI.',
-      'Improved maintainability of project by implementing TypeScript and testing with Jest and React Testing Library.',
+      "Developed an app from scratch to streamline employee timetable management for store managers at a leading global clothing retailer.",
     ],
   },
   {
-    image: '/images/itelsis.png',
-    company: 'Itelsis',
-    position: 'Frontend Developer',
-    date: '10/2021 - 05/2022',
+    image: "/images/deus.webp",
+    company: "DEUS: human(ity)-centered AI",
+    position: "Frontend Developer",
+    date: "05/2022 - 04/2024",
     highlights: [
-      'Develop SaaS to allow small electricity distributors to monitor their networks.',
-      'Improved app functionality and design by implementing a fully customizable dashboard which shows meaningful data and lets user take control over what they want to see.',
+      "Collaborated in successfully launching a service to allow users easily extract info from multiple huge pdf documents by asking questions to them using AI.",
+      "Improved maintainability of project by implementing TypeScript and testing with Jest and React Testing Library.",
     ],
   },
 ];
@@ -29,7 +28,7 @@ export function Experience() {
       <div className="flex flex-col gap-4 overflow-hidden">
         <div className="flex items-center gap-2">
           <h4 className="uppercase text-[12px] font-semibold text-[var(--accent)]">
-            recent work experience
+            most recent work experience
           </h4>
         </div>
         <div className="flex flex-col gap-6">
