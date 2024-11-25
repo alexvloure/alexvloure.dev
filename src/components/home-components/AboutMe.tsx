@@ -1,4 +1,5 @@
 import { GitHubIcon, LinkedInIcon, MailIcon } from "../icons";
+import { XIcon } from "../icons/XIcon";
 
 export function AboutMe() {
   return (
@@ -42,7 +43,7 @@ export function AboutMe() {
           <a
             href="mailto:alejandrovloure@gmail.com"
             aria-label="Send me an email"
-            className="p-2 rounded-xl border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer"
+            className="w-9 h-9 rounded-xl flex justify-center items-center border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer"
           >
             <MailIcon width={20} height={20} />
           </a>
@@ -51,7 +52,7 @@ export function AboutMe() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Go to my LinkedIn profile"
-            className="p-2 rounded-xl border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer"
+            className="w-9 h-9 rounded-xl flex justify-center items-center border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer"
           >
             <LinkedInIcon width={20} height={20} />
           </a>
@@ -60,9 +61,18 @@ export function AboutMe() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Go to my GitHub profile"
-            className="p-2 rounded-xl border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer"
+            className="w-9 h-9 rounded-xl flex justify-center items-center border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer"
           >
             <GitHubIcon width={20} height={20} />
+          </a>
+          <a
+            href="https://x.com/alexvloure"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Go to my GitHub profile"
+            className="w-9 h-9 rounded-xl flex justify-center items-center border border-gray-30 dark:border-gray-700 hover:border-[var(--accent)] dark:hover:border-[var(--accent)] fill-gray-600 hover:fill-[var(--accent)] transition-all duration-300 cursor-pointer"
+          >
+            <XIcon width={18} height={18} />
           </a>
         </div>
       </div>

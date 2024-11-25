@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useSpotify } from '@/hooks/useSpotify';
-import { Loader } from '../Loader';
-import noise from '@/assets/images/noise-resized.gif';
-import { SpotifySkeleton } from './skeletons/SpotifySkeleton';
+import { useSpotify } from "@/hooks/useSpotify";
+import { Loader } from "../Loader";
+import noise from "@/assets/images/noise-resized.gif";
+import { SpotifySkeleton } from "./skeletons/SpotifySkeleton";
 
 export function Spotify() {
   const { data, isLoading } = useSpotify();
 
   const togglePlay = () => {
-    const audio = document.getElementById('music') as HTMLAudioElement;
+    const audio = document.getElementById("music") as HTMLAudioElement;
     if (audio.paused) {
       play();
     } else {
@@ -18,16 +18,17 @@ export function Spotify() {
   };
 
   const play = () => {
-    const audio = document.getElementById('music') as HTMLAudioElement;
-    const vinyl = document.getElementById('vinyl') as HTMLDivElement;
-    vinyl.style.animationPlayState = 'running';
+    const audio = document.getElementById("music") as HTMLAudioElement;
+    const vinyl = document.getElementById("vinyl") as HTMLDivElement;
+    vinyl.style.animationPlayState = "running";
+    audio.volume = 0.5;
     audio.play();
   };
 
   const pause = () => {
-    const audio = document.getElementById('music') as HTMLAudioElement;
-    const vinyl = document.getElementById('vinyl') as HTMLDivElement;
-    vinyl.style.animationPlayState = 'paused';
+    const audio = document.getElementById("music") as HTMLAudioElement;
+    const vinyl = document.getElementById("vinyl") as HTMLDivElement;
+    vinyl.style.animationPlayState = "paused";
     audio.pause();
   };
 
@@ -44,7 +45,7 @@ export function Spotify() {
             </h4>
             <p className="text-base leading-normal text-gray-600 text-ellipsis overflow-hidden whitespace-normal line-clamp-2">
               {data?.artists.length > 1
-                ? data?.artists.map((artist: any) => artist.name).join(', ')
+                ? data?.artists.map((artist: any) => artist.name).join(", ")
                 : data?.artists[0].name}
             </p>
           </div>
@@ -54,7 +55,8 @@ export function Spotify() {
               backgroundImage: `url(${data?.album.images[0].url || noise.src})`,
             }}
             id="vinyl"
-            className="bg-cover bg-center rounded-full w-[60px] h-[60px] aspect-square animate-spin-slow [animation-play-state:paused] flex justify-center items-center cursor-pointer hover:opacity-90 border border-gray-30 dark:border-gray-700">
+            className="bg-cover bg-center rounded-full w-[60px] h-[60px] aspect-square animate-spin-slow [animation-play-state:paused] flex justify-center items-center cursor-pointer hover:opacity-90 border border-gray-30 dark:border-gray-700"
+          >
             <div className="rounded-full w-5 h-5 z-10 bg-[rgba(0,0,0,0.4)] flex justify-center items-center">
               <div className="rounded-full w-1 h-1 z-30 bg-[rgba(0,0,0,1)]" />
             </div>
