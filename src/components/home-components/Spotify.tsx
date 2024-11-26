@@ -21,7 +21,7 @@ export function Spotify() {
     const audio = document.getElementById("music") as HTMLAudioElement;
     const vinyl = document.getElementById("vinyl") as HTMLDivElement;
     vinyl.style.animationPlayState = "running";
-    audio.volume = 0.5;
+    audio.volume = 0.4;
     audio.play();
   };
 
