@@ -20,6 +20,7 @@ export async function GET() {
     return NextResponse.json(recentTracks.body.items[0].track);
   } catch (err) {
     console.log('Something went wrong!', err);
+    return NextResponse.error();
   }
 }
 
