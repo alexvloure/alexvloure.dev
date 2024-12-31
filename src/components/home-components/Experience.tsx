@@ -7,7 +7,7 @@ const experience = [
     position: "Frontend Engineer",
     date: "04/2024 - Present",
     highlights: [
-      "Developed an app from scratch to streamline employee timetable management for store managers at a leading global clothing retailer.",
+      "Developed a web app for one of the largest clothing retail companies, enabling store managers to manage timetables for their employees, track absences, and modify employee contracts.",
     ],
   },
   {
@@ -24,10 +24,14 @@ const experience = [
 
 export function Experience() {
   return (
-    <div className="order-3 col-span-12 xl:col-span-4 border-x border-t xl:border-r xl:border-l-0 xl:border-y-0 border-gray-30 dark:border-gray-700 px-6 py-8 bg-dotted-light dark:bg-dotted-dark">
+    <div
+      className="border-gray-30 order-3 col-span-12 border-x border-t bg-dotted-light px-6 py-8
+        dark:border-gray-700 dark:bg-dotted-dark xl:col-span-4 xl:border-y-0
+        xl:border-l-0 xl:border-r"
+    >
       <div className="flex flex-col gap-4 overflow-hidden">
         <div className="flex items-center gap-2">
-          <h4 className="uppercase text-[12px] font-semibold text-[var(--accent)]">
+          <h4 className="text-[12px] font-semibold uppercase text-[var(--accent)]">
             most recent work experience
           </h4>
         </div>

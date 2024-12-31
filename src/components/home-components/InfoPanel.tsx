@@ -1,7 +1,7 @@
-import { IconSlider } from '../IconSlider';
-import { LocationIcon } from '../icons/LocationIcon';
-import { Clock } from './Clock';
-import { Globe } from './Globe';
+import { IconSlider } from "../IconSlider";
+import { LocationIcon } from "../icons/LocationIcon";
+import { Clock } from "./Clock";
+import { Globe } from "./Globe";
 import {
   CypressIcon,
   GoIcon,
@@ -13,7 +13,7 @@ import {
   TestingLibraryIcon,
   TypeScriptIcon,
   ViteIcon,
-} from '../icons';
+} from "../icons";
 
 const LOGOS = [
   <TypeScriptIcon key="TypeScript" width={24} height={24} />,
@@ -30,23 +30,36 @@ const LOGOS = [
 
 export function InfoPanel() {
   return (
-    <div className="border-x border-gray-30 dark:border-gray-700 col-span-12 px-6 py-8 bg-gradient-to-br from-gray-200 via-white to-white dark:from-gray-900 dark:via-gray-1000 dark:to-gray-1000">
+    <div
+      className="border-gray-30 col-span-12 border-x bg-gradient-to-br from-gray-200 via-white
+        to-white px-6 py-8 dark:border-gray-700 dark:from-gray-900 dark:via-gray-1000
+        dark:to-gray-1000"
+    >
       <div className="flex flex-wrap justify-between gap-6 md:gap-0">
-        <div className="relative rounded-3xl border border-gray-30 dark:border-gray-700 h-[200px] w-full md:w-[49%] xl:w-[32%]">
+        <div
+          className="border-gray-30 relative h-[200px] w-full rounded-3xl border dark:border-gray-700
+            md:w-[49%] xl:w-[32%]"
+        >
           <Globe />
-          <div className="absolute top-4 left-4 flex gap-2">
+          <div className="absolute left-4 top-4 flex gap-2">
             <LocationIcon width={20} height={20} fill="var(--accent)" />
             <h4 className="mt-1 text-[12px] font-semibold text-gray-600">
               SCQ, Spain
             </h4>
           </div>
         </div>
-        <div className="rounded-3xl border border-gray-30 dark:border-gray-700 h-[200px] w-full md:w-[49%] xl:w-[32%]">
+        <div
+          className="border-gray-30 h-[200px] w-full rounded-3xl border dark:border-gray-700
+            md:w-[49%] xl:w-[32%]"
+        >
           <Clock />
         </div>
-        <div className="rounded-3xl border border-gray-30 dark:border-gray-700 h-[200px] md:mt-6 xl:mt-0 w-full xl:w-[32%] ">
-          <div className="flex flex-col h-full justify-center items-center gap-4">
-            <p className="text-gray-600 underline underline-offset-[3px] decoration-[var(--accent)]">
+        <div
+          className="border-gray-30 h-[200px] w-full rounded-3xl border dark:border-gray-700 md:mt-6
+            xl:mt-0 xl:w-[32%]"
+        >
+          <div className="flex h-full flex-col items-center justify-center gap-4">
+            <p className="text-gray-600 underline decoration-[var(--accent)] underline-offset-[3px]">
               Tech stack I usually work with
             </p>
             <IconSlider icons={LOGOS} />

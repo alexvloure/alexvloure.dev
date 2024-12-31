@@ -19,22 +19,22 @@ export function ExperienceItem({
 }: ExperienceItemProps) {
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex gap-2 items-center">
-        <div className="flex items-center min-w-[56px] min-h-[56px] rounded-lg bg-zinc-800">
+      <div className="flex items-center gap-2">
+        <div className="flex min-h-[56px] min-w-[56px] items-center rounded-lg bg-zinc-800">
           <Image
             src={image}
             loading="eager"
             width={56}
             height={56}
             alt="company logo"
-            className="filter brightness-0 invert px-1"
+            className="px-1 brightness-0 invert filter"
           />
         </div>
         <div className="w-full">
           <p>{company}</p>
-          <div className="flex justify-between items-center">
-            <p className="text-gray-600 text-sm leading-tight">{position}</p>
-            <p className="text-gray-600 text-xs leading-tight text-right">
+          <div className="flex items-center justify-between">
+            <p className="text-sm leading-tight text-gray-600">{position}</p>
+            <p className="text-right text-xs leading-tight text-gray-600">
               {date}
             </p>
           </div>
@@ -42,9 +42,7 @@ export function ExperienceItem({
       </div>
       <div className="flex gap-2">
         <div
-          className={`mx-7 border-gray-30 dark:border-gray-700 ${
-            isLastItem ? "" : "border-r"
-          }`}
+          className={`border-gray-30 mx-7 dark:border-gray-700 ${isLastItem ? "" : "border-r"}`}
         />
         <div className="flex flex-col gap-2">
           {highlights.map((highlight, index) => (

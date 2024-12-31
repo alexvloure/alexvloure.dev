@@ -1,13 +1,13 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import ProvidersWrapper from './ProvidersWrapper';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { mersad } from '../styles/fonts';
+import "./globals.css";
+import type { Metadata } from "next";
+import ProvidersWrapper from "./ProvidersWrapper";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { mersad } from "../styles/fonts";
 
 export const metadata: Metadata = {
-  title: 'alexvloure | Frontend developer',
-  description: 'Made with 🖤',
+  title: "alexvloure | Frontend developer",
+  description: "Made with 🖤",
 };
 
 export default function RootLayout({

@@ -2,26 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --foreground: #0c0c0c;
     --background: #fff;
     /* --accent: #fbbf24; */
-    --accent: #FF3D00;
+    --accent: #ff3d00;
   }
 
   .dark {
     --foreground: #fff;
     --background: #0c0c0c;
-    --accent: #DCFF54;
+    --accent: #dcff54;
   }
 }
 
-html, body {
+html,
+body {
   color: var(--foreground);
   background-color: var(--background);
-  height:100%;
+  height: 100%;
 }
 
 ::selection {
@@ -31,28 +31,26 @@ html, body {
 
 /*  */
 #logo {
-		fill-opacity: 0;
-		stroke-dasharray: 150;
-		stroke-dashoffset: 150;
-		animation: dash 1.5s ease-in forwards;
-    font-family: 'Mersad', sans-serif;
-    transform: transale3d(0,0,0);
-	}
+  fill-opacity: 0;
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  animation: dash 1.5s ease-in forwards;
+  font-family: "Mersad", sans-serif;
+  transform: transale3d(0, 0, 0);
+}
 
-	@keyframes dash {
-		70% {
-			fill-opacity: 30%;
-		}
+@keyframes dash {
+  70% {
+    fill-opacity: 30%;
+  }
 
-    90% {
-      fill-opacity: 100%;
-    }
+  90% {
+    fill-opacity: 100%;
+  }
 
-		100% {
-			fill-opacity: 100%;
-			stroke-dashoffset: 0;
-			/* stroke-width: 0.5px; */
-		}
-	}
-
-
+  100% {
+    fill-opacity: 100%;
+    stroke-dashoffset: 0;
+    /* stroke-width: 0.5px; */
+  }
+}

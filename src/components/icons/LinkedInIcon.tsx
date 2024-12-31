@@ -1,4 +1,4 @@
-export const LinkedInIcon = (props: React.ComponentPropsWithoutRef<'svg'>) => {
+export const LinkedInIcon = (props: React.ComponentPropsWithoutRef<"svg">) => {
   return (
     <svg
       version="1.0"
@@ -7,7 +7,8 @@ export const LinkedInIcon = (props: React.ComponentPropsWithoutRef<'svg'>) => {
       height="48px"
       viewBox="0 0 48 48"
       preserveAspectRatio="xMidYMid meet"
-      {...props}>
+      {...props}
+    >
       <g transform="translate(0,48) scale(0.1,-0.1)" stroke="none">
         <path
           d="M56 414 c-9 -8 -16 -22 -16 -29 0 -18 27 -45 45 -45 18 0 45 27 45

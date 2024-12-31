@@ -35,6 +35,10 @@
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
-    "@types/spotify-web-api-node": "^5.0.7"
+    "@types/spotify-web-api-node": "^5.0.7",
+    "prettier": "^3.4.2",
+    "prettier-plugin-classnames": "^0.7.5",
+    "prettier-plugin-merge": "^0.7.2",
+    "prettier-plugin-tailwindcss": "^0.6.9"
   }
 }

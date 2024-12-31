@@ -1,11 +1,14 @@
 export const SpotifySkeleton = () => {
   return (
-    <div className="flex justify-end items-center gap-4 animate-pulse">
+    <div className="flex animate-pulse items-center justify-end gap-4">
       <div className="flex flex-col items-end gap-1">
-        <div className="w-48 h-[18px] rounded bg-gray-700" />
-        <div className="w-20 h-4 rounded bg-gray-700" />
+        <div className="h-[18px] w-48 rounded bg-gray-700" />
+        <div className="h-4 w-20 rounded bg-gray-700" />
       </div>
-      <div className="bg-cover bg-center bg-gray-700 rounded-full w-[60px] h-[60px] aspect-square flex justify-center items-center"></div>
+      <div
+        className="flex aspect-square h-[60px] w-[60px] items-center justify-center rounded-full
+          bg-gray-700 bg-cover bg-center"
+      ></div>
     </div>
   );
 };

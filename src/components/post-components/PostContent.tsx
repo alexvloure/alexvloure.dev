@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import Note from '@/components/mdx-components/Note';
-import Image from 'next/image';
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import Note from "@/components/mdx-components/Note";
+import Image from "next/image";
 
 const components = {
   Note,
@@ -15,7 +15,7 @@ export default function BlogPostContent({
   source: MDXRemoteSerializeResult;
 }) {
   return (
-    <div className="max-w-2xl mx-auto prose dark:prose-invert">
+    <div className="prose mx-auto max-w-2xl dark:prose-invert">
       <MDXRemote {...source} components={components} />
     </div>
   );

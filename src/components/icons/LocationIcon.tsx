@@ -1,4 +1,4 @@
-export const LocationIcon = (props: React.ComponentPropsWithoutRef<'svg'>) => {
+export const LocationIcon = (props: React.ComponentPropsWithoutRef<"svg">) => {
   return (
     <svg
       version="1.0"
@@ -7,7 +7,8 @@ export const LocationIcon = (props: React.ComponentPropsWithoutRef<'svg'>) => {
       height="48px"
       viewBox="0 0 48 48"
       preserveAspectRatio="xMidYMid meet"
-      {...props}>
+      {...props}
+    >
       <g transform="translate(0,48) scale(0.1,-0.1)" stroke="none">
         <path
           d="M175 426 c-86 -39 -126 -136 -90 -222 18 -43 132 -164 155 -164 23 0

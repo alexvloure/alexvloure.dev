@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { satoshi_bold } from '@/styles/fonts';
-import { format } from 'date-fns';
-import { useLayoutEffect, useRef } from 'react';
+import { satoshi_bold } from "@/styles/fonts";
+import { format } from "date-fns";
+import { useLayoutEffect, useRef } from "react";
 
 export function Clock() {
   const clockRef = useRef<HTMLSpanElement | null>(null);
@@ -13,26 +13,26 @@ export function Clock() {
       now.getTimezoneOffset() <
       getTimezoneOffset(new Date(now.getFullYear(), 0, 1));
 
-    return isDaylightSavingTime ? 'CEST' : 'CET';
+    return isDaylightSavingTime ? "CEST" : "CET";
   };
 
   const getTimezoneOffset = (date: Date) => {
     return Math.max(
       date.getTimezoneOffset(),
-      new Date(date.getFullYear(), 6, 1).getTimezoneOffset()
+      new Date(date.getFullYear(), 6, 1).getTimezoneOffset(),
     );
   };
 
   const getGreetingMessage = () => {
     const hours = new Date().getHours();
     if (hours >= 5 && hours < 12) {
-      return 'Good morning!';
+      return "Good morning!";
     }
     if (hours >= 12 && hours < 18) {
-      return 'Good afternoon!';
+      return "Good afternoon!";
     }
     if (hours >= 18 || hours < 5) {
-      return 'Good evening!';
+      return "Good evening!";
     }
   };
 
@@ -47,7 +47,7 @@ export function Clock() {
       //   .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
       if (clockRef.current) {
-        clockRef.current.innerText = format(now, 'HH:mm:ss');
+        clockRef.current.innerText = format(now, "HH:mm:ss");
       }
     }
 
@@ -56,11 +56,14 @@ export function Clock() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-full cursor-default text-gray-600">
-      <div className="text-[var(--accent)] opacity-85">
+    <div
+      className="flex h-full w-full cursor-default flex-col items-center justify-center
+        text-gray-600"
+    >
+      <div className="opacity-85 text-[var(--accent)]">
         {getGreetingMessage()}
       </div>
-      <div className="w-full text-5xl text-center tabular-nums ml-4">
+      <div className="ml-4 w-full text-center text-5xl tabular-nums">
         <span ref={clockRef} className={satoshi_bold.className} />
         <span className="text-base font-bold text-[var(--accent)]">
           {getTimezoneName()}
