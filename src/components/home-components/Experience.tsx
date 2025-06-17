@@ -2,22 +2,21 @@ import { ExperienceItem } from "./ExperienceItem";
 
 const experience = [
   {
-    image: "/images/mca.webp",
-    company: "MCA Groupe",
-    position: "Frontend Engineer",
-    date: "04/2024 - Present",
+    image: "/images/kelea.svg",
+    company: "Kelea",
+    position: "Senior Frontend Engineer",
+    date: "03/2025 - Present",
     highlights: [
-      "Developed a web app for one of the largest clothing retail companies, enabling store managers to manage timetables for their employees, track absences, and modify employee contracts.",
+      "Now under the Kelea umbrella, I continue to work on the same project. Also, we're reaching production with a new product that allows employees to view their daily plans, register clockings or record absences, among other features.",
     ],
   },
   {
-    image: "/images/deus.webp",
-    company: "DEUS: human(ity)-centered AI",
-    position: "Frontend Developer",
-    date: "05/2022 - 04/2024",
+    image: "/images/mca.webp",
+    company: "MCA Groupe",
+    position: "Frontend Engineer",
+    date: "04/2024 - 03/2025",
     highlights: [
-      "Collaborated in successfully launching a service to allow users easily extract info from multiple huge pdf documents by asking questions to them using AI.",
-      "Improved maintainability of project by implementing TypeScript and testing with Jest and React Testing Library.",
+      "Developed a web app for one of the largest clothing retail companies, enabling store managers to manage timetables for their employees, track absences, and modify employee contracts.",
     ],
   },
 ];

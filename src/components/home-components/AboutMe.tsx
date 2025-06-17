@@ -20,14 +20,14 @@ export function AboutMe() {
             className="text-[var(--foreground)] underline decoration-[var(--accent)]
               underline-offset-[3px]"
           >
-            3.5+ years of experience
+            4+ years of experience
           </a>
           &nbsp;building scalable solutions, I&apos;m a frontend developer who
           aims to create delightful and functional websites.
         </p>
         <p className="text-gray-600">
-          Detail oriented and fast learner. Love to try out and experiment with
-          new technologies and tools.
+          Detail oriented and with a product-centric mindest. Love to try out
+          and experiment with new technologies and tools.
         </p>
         <p className="text-gray-600">
           I&apos;m currently studying a bachelor&apos;s degree in{" "}
