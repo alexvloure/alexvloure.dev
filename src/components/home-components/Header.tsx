@@ -23,13 +23,6 @@ export default function Header() {
             className="border-gray-30 col-span-10 flex items-center border-x dark:border-gray-700
               md:col-span-7"
           >
-            {/* <div
-              // text-transparent
-              className="w-full h-full leading-[normal] text-[15vw] md:text-[10vw] min-[1610px]:text-[9rem] px-4 pt-10 pb-8 md:pt-4 md:pb-0 text-left flex items-center "
-              // style={{ WebkitTextStroke: '2px var(--foreground)' }}
-              >
-              alexvloure
-            </div> */}
             <div className="relative flex h-full w-full items-center justify-start px-6 py-5 md:py-0">
               <svg
                 width="700"

@@ -20,7 +20,7 @@ export function AboutMe() {
             className="text-[var(--foreground)] underline decoration-[var(--accent)]
               underline-offset-[3px]"
           >
-            4+ years of experience
+            5 years of experience
           </a>
           &nbsp;building scalable solutions, I&apos;m a frontend developer who
           aims to create delightful and functional websites.

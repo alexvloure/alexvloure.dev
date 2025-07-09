@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 
+const fetchSpotify = async () => {
+  const response = await fetch("/api/spotify");
+  return await response.json();
+};
+
 export const useSpotify = () => {
-  const fetchSpotify = async () => {
-    const response = await fetch("/api/spotify");
-    return await response.json();
-  };
   const { data, error, isLoading } = useQuery({
     queryKey: ["spotify"],
     queryFn: fetchSpotify,

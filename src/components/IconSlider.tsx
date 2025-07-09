@@ -14,7 +14,7 @@ export const IconSlider: React.FC<IconSliderProps> = ({ icons }) => {
         after:bg-[linear-gradient(to_right,var(--background),transparent)]
         after:content-['']"
     >
-      <div className="flex max-h-14 w-[calc(250px*10)] animate-infinite-scroll">
+      <div className="animate-infinite-scroll-icons flex max-h-14 w-[calc(250px*10)]">
         {icons.map((icon, index) => (
           <div className="mx-auto flex items-center justify-center" key={index}>
             {icon}

@@ -9,24 +9,27 @@ module.exports = {
   darkMode: ["class"],
   theme: {
     extend: {
-      // backgroundImage: {
-      //   'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      //   'gradient-conic':
-      //     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      // },
       backgroundImage: {
         "dotted-dark": `url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 0.75C1.5 1.16421 1.16421 1.5 0.75 1.5C0.335786 1.5 0 1.16421 0 0.75C0 0.335786 0.335786 0 0.75 0C1.16421 0 1.5 0.335786 1.5 0.75Z' fill='%2339393D'/%3E%3C/svg%3E%0A");`,
         "dotted-light": `url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 0.75C1.5 1.16421 1.16421 1.5 0.75 1.5C0.335786 1.5 0 1.16421 0 0.75C0 0.335786 0.335786 0 0.75 0C1.16421 0 1.5 0.335786 1.5 0.75Z' fill='%23D7DDE4'/%3E%3C/svg%3E%0A");`,
       },
       animation: {
         "spin-slow": "spin 7s linear infinite",
-        "infinite-scroll": "infinite-scroll 25s linear infinite",
+        "infinite-scroll-icons": "infinite-scroll 25s linear infinite",
+        "infinite-scroll-images":
+          "infinite-scroll-images var(--scroll-duration, 20s) linear infinite",
       },
       keyframes: {
-        "infinite-scroll": {
+        "infinite-scroll-icons": {
           "0%": { transform: "translateX(0)" },
           "100%": {
             transform: "translateX(calc(-250px * 5))",
+          },
+        },
+        "infinite-scroll-images": {
+          "0%": { transform: "translateX(0)" },
+          "100%": {
+            transform: "translateX(calc(-1680px))",
           },
         },
       },
