@@ -71,5 +71,10 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant("only-hover", "@media (hover: hover)");
+    },
+    require("@tailwindcss/typography"),
+  ],
 };

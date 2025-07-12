@@ -6,7 +6,6 @@
   :root {
     --foreground: #0c0c0c;
     --background: #fff;
-    /* --accent: #fbbf24; */
     --accent: #ff3d00;
   }
 
@@ -44,6 +43,14 @@ body {
   animation: dash 1.5s ease-in forwards;
   font-family: "Mersad", sans-serif;
   transform: transale3d(0, 0, 0);
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
 }
 
 @keyframes dash {

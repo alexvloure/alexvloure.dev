@@ -1,9 +1,9 @@
-import { AboutMe } from "@/components/home-components/AboutMe";
-import { Experience } from "@/components/home-components/Experience";
-import Header from "@/components/home-components/Header";
-import { InfoPanel } from "@/components/home-components/InfoPanel";
-import { Portrait } from "@/components/home-components/Portrait";
-import { MiniTools } from "@/components/home-components/MiniTools";
+import { AboutMe } from "@/components/home/AboutMe";
+import { Experience } from "@/components/home/Experience";
+import Header from "@/components/home/Header";
+import { InfoPanel } from "@/components/home/InfoPanel";
+import { Portrait } from "@/components/home/Portrait";
+import { MiniTools } from "@/components/home/MiniTools";
 
 export default function Home() {
   return (

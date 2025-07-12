@@ -1,12 +1,12 @@
 "use client";
 
-import { useSpotify } from "@/hooks/useSpotify";
+import { useSpotifyRecentlyPlayed } from "@/hooks/useSpotifyRecentlyPlayed";
 import { Loader } from "../Loader";
 import noise from "@/assets/images/noise-resized.gif";
 import { SpotifySkeleton } from "./skeletons/SpotifySkeleton";
 
 export function Spotify() {
-  const { data, isLoading } = useSpotify();
+  const { data, isLoading } = useSpotifyRecentlyPlayed();
 
   const togglePlay = () => {
     if (!data.preview_url) return;

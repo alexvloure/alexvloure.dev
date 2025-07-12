@@ -1,7 +1,7 @@
 "use client";
 
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import Note from "@/components/blog-components/mdx-components/Note";
+import Note from "@/components/blog/mdx-components/Note";
 import Image from "next/image";
 
 const components = {

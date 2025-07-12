@@ -23,14 +23,30 @@ export async function POST(req: NextRequest) {
           messages: [
             {
               role: "system",
-              content:
-                // "You are a playlist generator who offers creative, fresh music every time based on user's mood. Avoid repetitions and always surprise the listener.",
-                "You are a creative music curator who generates diverse, emotionally resonant playlists. You use well-known english songs. Try to include at least one song in the user's language",
+              content: `You are an expert music curator who creates playlists that match user's emotional states and moods.
+                
+                REQUIREMENTS:
+                - Choose internationally recognized songs with high Spotify availability
+                - Provide the exact number of songs requested (never more, never less)
+                - Verify all song titles and artist names are completely accurate
+                - If uncertain about any track details, replace with a confirmed alternative
+                - Include diverse genres, eras, and artists while maintaining mood coherence
+                - Arrange songs to create a natural emotional flow
+
+                RESPONSE FORMAT:
+                Return only a JSON array in this exact format:
+                [
+                  {
+                    "title": "Song Title",
+                    "artist": "Artist Name"
+                  }
+                ]
+
+                Your goal is to create a soundtrack that enhances the user's emotional experience through music.`,
             },
             {
               role: "user",
-              // content: `The user is feeling: "${mood}". The mood is expressed in ${language}. Generate a playlist of 10 songs. Respond as a JSON array with "title", "artist", and "album".`,
-              content: `The user is feeling: "${mood}". Create a playlist of 10 songs that match this mood. Use songs that strongly match the vibe. Return the result as a JSON array of objects, each with "title", "artist", and "album" fields.`,
+              content: `The user is feeling: "${mood}". Create a playlist of 10 songs that match this mood.`,
             },
           ],
           response_format: {

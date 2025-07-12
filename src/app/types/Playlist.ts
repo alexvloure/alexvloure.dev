@@ -9,3 +9,12 @@ export type Song = {
   artist: string;
   album: string;
 };
+
+export type EnrichedSong = {
+  title: string;
+  artist: string;
+  album: string;
+  spotifyUrl?: string;
+  previewUrl?: string;
+  albumImage?: string;
+};
