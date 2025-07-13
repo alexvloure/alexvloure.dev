@@ -1,7 +1,6 @@
-import { EnrichedSong, PlaylistResponse } from "@/app/types/Playlist";
+import { EnrichedSong, GeneratePlaylistResponse } from "@/app/types/Playlist";
 import { useMutation } from "@tanstack/react-query";
-import { set } from "date-fns";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const fetchSpotifyTrack = async (title: string, artist: string) => {
   const response = await fetch(
@@ -15,7 +14,7 @@ const fetchSpotifyTrack = async (title: string, artist: string) => {
 
 const fetchGeneratePlaylist = async (
   mood: string,
-): Promise<PlaylistResponse> => {
+): Promise<GeneratePlaylistResponse> => {
   const response = await fetch("/api/generate-playlist", {
     method: "POST",
     body: JSON.stringify({
@@ -25,13 +24,47 @@ const fetchGeneratePlaylist = async (
   return await response.json();
 };
 
+const fetchCreatePlaylist = async (name: string) => {
+  const response = await fetch("/api/spotify/create-playlist", {
+    method: "POST",
+    body: JSON.stringify({
+      name,
+    }),
+  });
+  if (!response.ok) {
+    throw new Error("Failed to create playlist");
+  }
+  return await response.json();
+};
+
+const fetchAddTracksToPlaylist = async (
+  playlistId: string,
+  tracks: string[],
+) => {
+  const response = await fetch("/api/spotify/add-playlist-tracks", {
+    method: "POST",
+    body: JSON.stringify({
+      playlistId,
+      tracks,
+    }),
+  });
+  if (!response.ok) {
+    throw new Error("Failed to add tracks to playlist");
+  }
+  return await response.json();
+};
+
 export const useGeneratePlaylist = () => {
   const [isGenerateSuccess, setIsGenerateSuccess] = useState(false);
   const [generateError, setGenerateError] = useState<Error | null>(null);
   const [isGenerateLoading, setIsGenerateLoading] = useState(false);
-  const [playlist, setPlaylist] = useState<EnrichedSong[] | null>(null);
-  const { mutate, data, isLoading, error, isSuccess } = useMutation<
-    PlaylistResponse,
+  const [playlist, setPlaylist] = useState<{
+    name: string;
+    url: string;
+    tracks: EnrichedSong[];
+  } | null>(null);
+  const { mutate, data, isLoading, error } = useMutation<
+    GeneratePlaylistResponse,
     Error,
     string
   >(fetchGeneratePlaylist);
@@ -51,29 +84,41 @@ export const useGeneratePlaylist = () => {
 
     const getEnrichedSongs = async () => {
       try {
-        const results = await Promise.allSettled(
-          data.playlist.map(async ({ title, artist, album }) => {
+        const tracks = await Promise.allSettled(
+          data.tracks.map(async ({ title, artist }) => {
             const result = await fetchSpotifyTrack(title, artist);
             return {
               title,
               artist,
-              album,
+              album: result?.album?.name,
               duration: result?.duration_ms,
-              spotifyUrl: result?.external_urls?.spotify,
+              spotifyId: result?.id,
               previewUrl: result?.preview_url,
               albumImage: result?.album?.images?.[0]?.url,
             };
           }),
         );
-        const enrichedSongs = results
+        const enrichedSongs = tracks
           .filter((r) => r.status === "fulfilled")
           .map((r) => (r as PromiseFulfilledResult<EnrichedSong>).value);
 
-        setPlaylist(enrichedSongs);
+        const { playlistId, playlistUrl } = await fetchCreatePlaylist(
+          data.name,
+        );
+        await fetchAddTracksToPlaylist(
+          playlistId,
+          enrichedSongs.map((song) => `spotify:track:${song.spotifyId!}`),
+        );
+
+        setPlaylist({
+          name: data.name,
+          url: playlistUrl,
+          tracks: enrichedSongs,
+        });
         setIsGenerateLoading(false);
         setIsGenerateSuccess(true);
       } catch (error) {
-        console.error("Error fetching enriched songs:", error);
+        console.error("Error generating playlist", error);
         setPlaylist(null);
         setIsGenerateLoading(false);
         setGenerateError(error as Error);

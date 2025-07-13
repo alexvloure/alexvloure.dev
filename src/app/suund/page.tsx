@@ -2,7 +2,7 @@
 
 import { useGeneratePlaylist } from "@/hooks/useGeneratePlaylist";
 import Image from "next/image";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { SuundLoadingOverlay } from "@/components/suund/SuundLoadingOverlay";
 import { AlbumCarousel } from "@/components/suund/AlbumCarousel";
@@ -10,8 +10,6 @@ import { AlbumCarousel } from "@/components/suund/AlbumCarousel";
 export default function Suund() {
   const [mood, setMood] = useState("");
   const { mutate, playlist, isLoading, isSuccess } = useGeneratePlaylist();
-
-  console.log("playlist", playlist);
 
   const handleMutate = useCallback(() => {
     if (mood.trim() === "") return;
@@ -101,7 +99,7 @@ export default function Suund() {
                           transition={{ delay: 0.2 }}
                           className="flex max-h-[300px] flex-col gap-3 overflow-y-auto pr-2"
                         >
-                          {playlist?.map((song, index) => (
+                          {playlist.tracks?.map((song, index) => (
                             <motion.div
                               key={index}
                               initial={{ opacity: 0, y: 20 }}
@@ -147,6 +145,22 @@ export default function Suund() {
                               </div>
                             </motion.div>
                           ))}
+                        </motion.div>
+
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.5, duration: 0.4 }}
+                          className="mt-8 flex items-center justify-self-center"
+                        >
+                          <a
+                            href={playlist.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm font-medium text-[var(--accent)] hover:underline"
+                          >
+                            Open Playlist
+                          </a>
                         </motion.div>
                       </motion.div>
                     )}
