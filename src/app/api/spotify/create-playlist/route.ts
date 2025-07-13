@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
       collaborative: false,
     });
 
-    return new NextResponse(
+    return NextResponse.json(
       JSON.stringify({
         message: "Playlist created successfully",
         playlistId: response.body.id,

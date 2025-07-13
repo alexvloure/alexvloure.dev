@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import SpotifyWebApi from "spotify-web-api-node";
 
 const api = new SpotifyWebApi({
@@ -24,13 +24,13 @@ export async function POST(req: NextRequest) {
 
     await api.addTracksToPlaylist(playlistId, tracks);
 
-    return new Response(
+    return NextResponse.json(
       JSON.stringify({ message: "Tracks added successfully" }),
       { status: 200 },
     );
   } catch (error) {
     console.error("Error adding tracks to playlist:", error);
-    return new Response(
+    return NextResponse.json(
       JSON.stringify({ error: "Failed to add tracks to playlist" }),
       { status: 500 },
     );
