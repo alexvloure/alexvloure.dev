@@ -2,10 +2,12 @@
 
 import { useGeneratePlaylist } from "@/hooks/useGeneratePlaylist";
 import Image from "next/image";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { SuundLoadingOverlay } from "@/components/suund/SuundLoadingOverlay";
 import { AlbumCarousel } from "@/components/suund/AlbumCarousel";
+import { FaSpotify } from "react-icons/fa";
+import getTimeString from "@/utils/time";
 
 export default function Suund() {
   const [mood, setMood] = useState("");
@@ -21,15 +23,36 @@ export default function Suund() {
     return "idle";
   }, [isSuccess, playlist]);
 
+  const { shouldShowResults, shouldShowLoading, shouldShowCarousel } = useMemo(
+    () => ({
+      shouldShowResults: isSuccess && playlist && !isLoading,
+      shouldShowLoading: isLoading,
+      shouldShowCarousel: !isSuccess || (isSuccess && isLoading),
+    }),
+    [isSuccess, playlist, isLoading],
+  );
+
+  const { beforeClasses, afterClasses } = useMemo(
+    () => ({
+      beforeClasses: !shouldShowResults
+        ? "before:absolute before:left-0 before:top-0 before:z-[2] before:h-full before:w-[100px] before:bg-[linear-gradient(to_right,var(--background),transparent)] before:content-['']"
+        : "",
+      afterClasses: !shouldShowResults
+        ? "after:absolute after:right-0 after:top-0 after:z-[2] after:h-full after:w-[100px] after:-scale-x-100 after:bg-[linear-gradient(to_right,var(--background),transparent)] after:content-['']"
+        : "",
+    }),
+    [shouldShowResults],
+  );
+
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-screen-md flex-col">
-      <div className="flex flex-1 flex-col justify-center gap-8 px-5">
+      <div className="flex flex-1 flex-col justify-center gap-8 px-2">
         <main className="flex justify-center">
           <div
             className="border-gray-30 mx-auto flex min-h-[400px] w-full max-w-[600px] flex-col
               items-center justify-center rounded-2xl"
           >
-            <div className="flex h-full w-full flex-col items-center justify-start gap-4 p-8">
+            <div className="flex h-full w-full flex-col items-center justify-start gap-4 px-6 py-8">
               <h4 className="text-[64px] font-semibold leading-[normal] text-[var(--accent)]">
                 suund
               </h4>
@@ -49,10 +72,10 @@ export default function Suund() {
                     dark:focus:border-[var(--accent)]"
                 />
                 <button
-                  className="dark:only-hover:hover:bg-white only-hover:hover:bg-[#6C757D] absolute right-1.5
-                    top-1/2 h-8 -translate-y-1/2 rounded-full bg-[var(--accent)] px-4 py-2
-                    leading-[1.25] text-white focus:outline-none disabled:cursor-not-allowed
-                    disabled:bg-transparent dark:text-black"
+                  className="absolute right-1.5 top-1/2 h-8 -translate-y-1/2 rounded-full bg-[var(--accent)]
+                    px-4 py-2 leading-[1.25] text-white focus:outline-none
+                    disabled:cursor-not-allowed disabled:bg-transparent
+                    only-hover:hover:bg-[#6C757D] dark:text-black dark:only-hover:hover:bg-white"
                   onClick={handleMutate}
                   disabled={isLoading}
                 >
@@ -73,19 +96,11 @@ export default function Suund() {
                       height: { duration: 0.6 },
                     }}
                     style={{ overflow: "hidden" }}
-                    className="overflow-hidden bg-[var(--background)] before:absolute before:left-0
-                      before:top-0 before:z-[2] before:h-full before:w-[100px]
-                      before:bg-[linear-gradient(to_right,var(--background),transparent)]
-                      before:content-[''] after:absolute after:right-0 after:top-0 after:z-[2]
-                      after:h-full after:w-[100px] after:-scale-x-100
-                      after:bg-[linear-gradient(to_right,var(--background),transparent)]
-                      after:content-['']"
+                    className={`overflow-hidden bg-[var(--background)] ${beforeClasses} ${afterClasses}`}
                   >
-                    {!isSuccess && <AlbumCarousel />}
-                    {isLoading && <SuundLoadingOverlay />}
-
-                    {/* Success state - Playlist */}
-                    {isSuccess && playlist && !isLoading && (
+                    {shouldShowCarousel && <AlbumCarousel />}
+                    {shouldShowLoading && <SuundLoadingOverlay />}
+                    {shouldShowResults && (
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -96,10 +111,23 @@ export default function Suund() {
                         <motion.div
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
+                          transition={{ delay: 0.1 }}
+                          className="relative z-10 mb-4 flex items-center justify-around"
+                        >
+                          <h2 className="w-full max-w-[75%] text-lg font-semibold text-gray-900 dark:text-white">
+                            {playlist?.name}
+                          </h2>
+                          <p className="text-gray-600">
+                            {playlist?.tracks.length} songs
+                          </p>
+                        </motion.div>
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
                           transition={{ delay: 0.2 }}
                           className="flex max-h-[300px] flex-col gap-3 overflow-y-auto pr-2"
                         >
-                          {playlist.tracks?.map((song, index) => (
+                          {playlist?.tracks?.map((song, index) => (
                             <motion.div
                               key={index}
                               initial={{ opacity: 0, y: 20 }}
@@ -137,11 +165,9 @@ export default function Suund() {
                                 </p>
                               </div>
                               <div className="flex-shrink-0">
-                                <div className="h-6 w-6 text-[var(--accent)] opacity-60">
-                                  <svg fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
-                                </div>
+                                <span className="text-sm text-gray-600">
+                                  {getTimeString(song.durationMs)}
+                                </span>
                               </div>
                             </motion.div>
                           ))}
@@ -154,12 +180,13 @@ export default function Suund() {
                           className="mt-8 flex items-center justify-self-center"
                         >
                           <a
-                            href={playlist.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm font-medium text-[var(--accent)] hover:underline"
+                            href={playlist?.url}
+                            className="inline-flex items-center space-x-2 rounded-full bg-[var(--accent)] px-6 py-2
+                              font-medium text-white transition-colors duration-200
+                              only-hover:hover:bg-[#6C757D] dark:text-black dark:only-hover:hover:bg-white"
                           >
-                            Open Playlist
+                            <FaSpotify className="text-lg" />
+                            <span>Open in Spotify</span>
                           </a>
                         </motion.div>
                       </motion.div>

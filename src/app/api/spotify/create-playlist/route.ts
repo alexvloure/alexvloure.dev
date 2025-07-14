@@ -27,17 +27,17 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json(
-      JSON.stringify({
+      {
         message: "Playlist created successfully",
         playlistId: response.body.id,
         playlistUrl: response.body.external_urls.spotify,
-      }),
+      },
       { status: 201 },
     );
   } catch (error) {
     console.error("Error creating playlist:", error);
-    return new Response(
-      JSON.stringify({ error: "Failed to create playlist" }),
+    return NextResponse.json(
+      { error: "Failed to create playlist" },
       { status: 500 },
     );
   }

@@ -11,8 +11,8 @@ export async function POST(req: NextRequest) {
   const { playlistId, tracks } = body;
 
   if (!playlistId || !tracks || tracks.length === 0) {
-    return new Response(
-      JSON.stringify({ error: "Playlist ID and tracks are required" }),
+    return NextResponse.json(
+      { error: "Playlist ID and tracks are required" },
       { status: 400 },
     );
   }
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     await api.addTracksToPlaylist(playlistId, tracks);
 
     return NextResponse.json(
-      JSON.stringify({ message: "Tracks added successfully" }),
+      { message: "Tracks added successfully" },
       { status: 200 },
     );
   } catch (error) {

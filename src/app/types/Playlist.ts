@@ -12,6 +12,7 @@ export type EnrichedSong = {
   title: string;
   artist: string;
   album: string;
+  durationMs: number;
   spotifyId?: string;
   previewUrl?: string;
   albumImage?: string;

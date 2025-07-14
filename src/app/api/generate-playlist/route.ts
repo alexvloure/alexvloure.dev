@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
               - If uncertain about any track details, replace with a confirmed alternative
               - Include diverse genres, eras, and artists while maintaining mood coherence
               - Arrange songs to create a natural emotional flow
-              - Create a compelling playlist name that captures the essence of the mood/theme
+              - Create a compelling playlist name that captures the essence of the mood/theme (max 30 characters)
 
               RESPONSE FORMAT:
               Return only a JSON object in this exact format:

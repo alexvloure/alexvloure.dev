@@ -91,7 +91,7 @@ export const useGeneratePlaylist = () => {
               title,
               artist,
               album: result?.album?.name,
-              duration: result?.duration_ms,
+              durationMs: result?.duration_ms,
               spotifyId: result?.id,
               previewUrl: result?.preview_url,
               albumImage: result?.album?.images?.[0]?.url,
@@ -105,6 +105,7 @@ export const useGeneratePlaylist = () => {
         const { playlistId, playlistUrl } = await fetchCreatePlaylist(
           data.name,
         );
+
         await fetchAddTracksToPlaylist(
           playlistId,
           enrichedSongs.map((song) => `spotify:track:${song.spotifyId!}`),
