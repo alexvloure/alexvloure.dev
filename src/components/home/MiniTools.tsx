@@ -47,8 +47,8 @@ export const MiniTools = () => {
             renderContent={suundImages}
             title="suund"
             description="Describe your current mood and this AI tool will create the perfect playlist to suit you!"
-            className="border-gray-30 aspect-square w-full border bg-transparent dark:border-gray-700
-              md:w-[250px]"
+            className="border-gray-30 box-border aspect-square w-full border bg-transparent
+              dark:border-gray-700 md:w-[250px]"
           />
         </Link>
         {/* Custom card */}

@@ -20,7 +20,10 @@ export const Card = ({
       className={`group relative overflow-hidden rounded-lg ${className} p-6`}
     >
       {renderContent && renderContent()}
-      <div className="flex h-full flex-col items-center justify-end">
+      <div
+        className="flex h-[calc(100%_-_3rem)] flex-col items-center justify-end overflow-hidden
+          md:h-full"
+      >
         <h3 className="text-[20px] font-semibold text-gray-900 dark:text-white">
           {title}
         </h3>
