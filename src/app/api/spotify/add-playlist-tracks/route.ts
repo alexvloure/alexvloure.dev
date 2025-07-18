@@ -29,7 +29,6 @@ export async function POST(req: NextRequest) {
       { status: 200 },
     );
   } catch (error) {
-    console.error("Error adding tracks to playlist:", error);
     return NextResponse.json(
       JSON.stringify({ error: "Failed to add tracks to playlist" }),
       { status: 500 },

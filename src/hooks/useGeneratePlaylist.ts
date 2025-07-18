@@ -1,4 +1,8 @@
-import { EnrichedSong, GeneratePlaylistResponse } from "@/app/types/Playlist";
+import {
+  EnrichedSong,
+  GeneratePlaylistRequest,
+  GeneratePlaylistResponse,
+} from "@/app/types/Playlist";
 import { useMutation } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
@@ -12,12 +16,18 @@ const fetchSpotifyTrack = async (title: string, artist: string) => {
   return await response.json();
 };
 
-const fetchGeneratePlaylist = async (
-  mood: string,
-): Promise<GeneratePlaylistResponse> => {
+const fetchGeneratePlaylist = async ({
+  language,
+  genre,
+  numberOfSongs,
+  mood,
+}: GeneratePlaylistRequest): Promise<GeneratePlaylistResponse> => {
   const response = await fetch("/api/generate-playlist", {
     method: "POST",
     body: JSON.stringify({
+      language,
+      genre,
+      numberOfSongs,
       mood,
     }),
   });
@@ -66,7 +76,7 @@ export const useGeneratePlaylist = () => {
   const { mutate, data, isLoading, error } = useMutation<
     GeneratePlaylistResponse,
     Error,
-    string
+    GeneratePlaylistRequest
   >(fetchGeneratePlaylist);
 
   if (error) {

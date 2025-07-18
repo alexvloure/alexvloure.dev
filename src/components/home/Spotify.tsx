@@ -8,31 +8,6 @@ import { SpotifySkeleton } from "./skeletons/SpotifySkeleton";
 export function Spotify() {
   const { data, isLoading } = useSpotifyRecentlyPlayed();
 
-  const togglePlay = () => {
-    if (!data.preview_url) return;
-    const audio = document.getElementById("music") as HTMLAudioElement;
-    if (audio.paused) {
-      play();
-    } else {
-      pause();
-    }
-  };
-
-  const play = () => {
-    const audio = document.getElementById("music") as HTMLAudioElement;
-    const vinyl = document.getElementById("vinyl") as HTMLDivElement;
-    vinyl.style.animationPlayState = "running";
-    audio.volume = 1;
-    audio.play();
-  };
-
-  const pause = () => {
-    const audio = document.getElementById("music") as HTMLAudioElement;
-    const vinyl = document.getElementById("vinyl") as HTMLDivElement;
-    vinyl.style.animationPlayState = "paused";
-    audio.pause();
-  };
-
   return (
     <div
       className="flex h-full w-full flex-col justify-end bg-gradient-to-br from-gray-200
@@ -61,7 +36,6 @@ export function Spotify() {
             </p>
           </div>
           <div
-            onClick={togglePlay}
             style={{
               backgroundImage: `url(${data?.album.images[0].url || noise.src})`,
             }}
@@ -69,12 +43,11 @@ export function Spotify() {
             className={`border-gray-30 flex aspect-square h-[60px] w-[60px] animate-spin-slow
               ${!!data?.preview_url && "cursor-pointer"} items-center justify-center
               rounded-full border bg-cover bg-center [animation-play-state:paused]
-              hover:opacity-90 dark:border-gray-700`}
+              dark:border-gray-700`}
           >
             <div className="z-10 flex h-5 w-5 items-center justify-center rounded-full bg-[rgba(0,0,0,0.4)]">
               <div className="z-30 h-1 w-1 rounded-full bg-[rgba(0,0,0,1)]" />
             </div>
-            <audio src={data?.preview_url} id="music" onEnded={pause}></audio>
           </div>
         </div>
       </Loader>

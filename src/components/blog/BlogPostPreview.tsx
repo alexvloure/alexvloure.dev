@@ -16,7 +16,7 @@ export default async function BlogPostPreview(props: BlogPostPreviewProps) {
   return (
     <div
       className="group flex min-h-[200px] w-full cursor-pointer flex-col items-start
-        justify-start rounded-3xl bg-[#F5F5F7] p-6 dark:bg-[#010101] lg:min-h-[225px]
+        justify-start rounded-lg bg-[#F5F5F7] p-6 dark:bg-[#010101] lg:min-h-[225px]
         lg:p-10"
     >
       <CustomLink slug={props.slug}>

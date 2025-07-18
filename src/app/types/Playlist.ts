@@ -1,3 +1,10 @@
+export type GeneratePlaylistRequest = {
+  language: string;
+  genre: string;
+  numberOfSongs: number;
+  mood: string;
+};
+
 export type GeneratePlaylistResponse = {
   name: string;
   tracks: Song[];
