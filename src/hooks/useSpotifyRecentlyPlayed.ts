@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 
-const fetchSpotify = async () => {
-  const response = await fetch("/api/spotify");
+const fetchRecentlyPlayed = async () => {
+  const response = await fetch("/api/spotify/recently-played");
   return await response.json();
 };
 
-export const useSpotify = () => {
+export const useSpotifyRecentlyPlayed = () => {
   const { data, error, isLoading } = useQuery({
     queryKey: ["spotify"],
-    queryFn: fetchSpotify,
+    queryFn: fetchRecentlyPlayed,
     // staleTime: 5 * (60 * 1000), // 5 minutes
   });
   if (error) {

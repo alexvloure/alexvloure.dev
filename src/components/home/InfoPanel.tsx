@@ -37,29 +37,29 @@ export function InfoPanel() {
     >
       <div className="flex flex-wrap justify-between gap-6 md:gap-0">
         <div
-          className="border-gray-30 relative h-[200px] w-full rounded-3xl border dark:border-gray-700
+          className="border-gray-30 relative h-[200px] w-full rounded-lg border dark:border-gray-700
             md:w-[49%] xl:w-[32%]"
         >
           <Globe />
           <div className="absolute left-4 top-4 flex gap-2">
-            <LocationIcon width={20} height={20} fill="var(--accent)" />
+            <LocationIcon width={20} height={20} fill="hsl(var(--accent))" />
             <h4 className="mt-1 text-[12px] font-semibold text-gray-600">
               SCQ, Spain
             </h4>
           </div>
         </div>
         <div
-          className="border-gray-30 h-[200px] w-full rounded-3xl border dark:border-gray-700
+          className="border-gray-30 h-[200px] w-full rounded-lg border dark:border-gray-700
             md:w-[49%] xl:w-[32%]"
         >
           <Clock />
         </div>
         <div
-          className="border-gray-30 h-[200px] w-full rounded-3xl border dark:border-gray-700 md:mt-6
+          className="border-gray-30 h-[200px] w-full rounded-lg border dark:border-gray-700 md:mt-6
             xl:mt-0 xl:w-[32%]"
         >
           <div className="flex h-full flex-col items-center justify-center gap-4">
-            <p className="text-gray-600 underline decoration-[var(--accent)] underline-offset-[3px]">
+            <p className="decoration-accent text-gray-600 underline underline-offset-[3px]">
               Tech stack I usually work with
             </p>
             <IconSlider icons={LOGOS} />

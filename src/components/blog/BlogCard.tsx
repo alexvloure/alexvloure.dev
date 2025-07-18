@@ -5,7 +5,7 @@ export default function BlogCard() {
     <Link href={"/blog"}>
       <div
         className="relative col-span-1 flex aspect-square flex-col items-center justify-center
-          overflow-hidden rounded-3xl bg-[#F5F5F7] shadow-sm transition duration-300
+          overflow-hidden rounded-lg bg-[#F5F5F7] shadow-sm transition duration-300
           ease-in-out dark:bg-[#010101]"
       >
         <h1

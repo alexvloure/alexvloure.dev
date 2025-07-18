@@ -17,10 +17,9 @@ export function AboutMe() {
             href="https://www.linkedin.com/in/alexvloure"
             target="_blank"
             rel="noreferrer noopener"
-            className="text-[var(--foreground)] underline decoration-[var(--accent)]
-              underline-offset-[3px]"
+            className="decoration-accent text-foreground underline underline-offset-[3px]"
           >
-            4+ years of experience
+            5 years of experience
           </a>
           &nbsp;building scalable solutions, I&apos;m a frontend developer who
           aims to create delightful and functional websites.
@@ -35,8 +34,7 @@ export function AboutMe() {
             href="https://www.uoc.edu/en/studies/bachelors-degrees/bachelors-degree-software-development"
             target="_blank"
             rel="noreferrer noopener"
-            className="text-[var(--foreground)] underline decoration-[var(--accent)]
-              underline-offset-[3px]"
+            className="decoration-accent text-foreground underline underline-offset-[3px]"
           >
             Computer Science at the UOC
           </a>
@@ -48,10 +46,10 @@ export function AboutMe() {
           <a
             href="mailto:alejandrovloure@gmail.com"
             aria-label="Send me an email"
-            className="border-gray-30 flex h-9 w-9 cursor-pointer items-center justify-center
-              rounded-xl border fill-gray-600 transition-all duration-300
-              hover:border-[var(--accent)] hover:fill-[var(--accent)] dark:border-gray-700
-              dark:hover:border-[var(--accent)]"
+            className="border-gray-30 only-hover:border-accent only-hover:fill-accent
+              dark:only-hover:border-accent flex h-9 w-9 cursor-pointer items-center
+              justify-center rounded-xl border fill-gray-600 transition-all duration-300
+              dark:border-gray-700"
           >
             <MailIcon width={20} height={20} />
           </a>
@@ -60,10 +58,10 @@ export function AboutMe() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Go to my LinkedIn profile"
-            className="border-gray-30 flex h-9 w-9 cursor-pointer items-center justify-center
-              rounded-xl border fill-gray-600 transition-all duration-300
-              hover:border-[var(--accent)] hover:fill-[var(--accent)] dark:border-gray-700
-              dark:hover:border-[var(--accent)]"
+            className="border-gray-30 only-hover:border-accent only-hover:fill-accent
+              dark:only-hover:border-accent flex h-9 w-9 cursor-pointer items-center
+              justify-center rounded-xl border fill-gray-600 transition-all duration-300
+              dark:border-gray-700"
           >
             <LinkedInIcon width={20} height={20} />
           </a>
@@ -72,10 +70,10 @@ export function AboutMe() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Go to my GitHub profile"
-            className="border-gray-30 flex h-9 w-9 cursor-pointer items-center justify-center
-              rounded-xl border fill-gray-600 transition-all duration-300
-              hover:border-[var(--accent)] hover:fill-[var(--accent)] dark:border-gray-700
-              dark:hover:border-[var(--accent)]"
+            className="border-gray-30 only-hover:border-accent only-hover:fill-accent
+              dark:only-hover:border-accent flex h-9 w-9 cursor-pointer items-center
+              justify-center rounded-xl border fill-gray-600 transition-all duration-300
+              dark:border-gray-700"
           >
             <GitHubIcon width={20} height={20} />
           </a>
@@ -84,10 +82,10 @@ export function AboutMe() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Go to my GitHub profile"
-            className="border-gray-30 flex h-9 w-9 cursor-pointer items-center justify-center
-              rounded-xl border fill-gray-600 transition-all duration-300
-              hover:border-[var(--accent)] hover:fill-[var(--accent)] dark:border-gray-700
-              dark:hover:border-[var(--accent)]"
+            className="border-gray-30 only-hover:border-accent only-hover:fill-accent
+              dark:only-hover:border-accent flex h-9 w-9 cursor-pointer items-center
+              justify-center rounded-xl border fill-gray-600 transition-all duration-300
+              dark:border-gray-700"
           >
             <XIcon width={18} height={18} />
           </a>

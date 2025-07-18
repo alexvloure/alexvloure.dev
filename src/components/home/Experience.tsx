@@ -30,7 +30,7 @@ export function Experience() {
     >
       <div className="flex flex-col gap-4 overflow-hidden">
         <div className="flex items-center gap-2">
-          <h4 className="text-[12px] font-semibold uppercase text-[var(--accent)]">
+          <h4 className="text-accent text-[12px] font-semibold uppercase">
             most recent work experience
           </h4>
         </div>

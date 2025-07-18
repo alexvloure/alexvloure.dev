@@ -12,12 +12,11 @@ export function Portrait() {
           src={alexvloure_waving}
           priority={true}
           alt="Alexvloure image"
-          className="z-10 max-w-[200px] rounded-3xl object-cover object-center grayscale
-            md:max-w-full"
+          className="z-10 max-w-[200px] rounded-lg object-cover object-center grayscale md:max-w-full"
         />
         <div
           className="absolute bottom-0 left-0 h-12 w-full
-            bg-[linear-gradient(to_top,var(--background)_0%,transparent)]"
+            bg-[linear-gradient(to_top,hsl(var(--background))_0%,transparent)]"
         />
       </div>
     </div>

@@ -60,12 +60,10 @@ export function Clock() {
       className="flex h-full w-full cursor-default flex-col items-center justify-center
         text-gray-600"
     >
-      <div className="opacity-85 text-[var(--accent)]">
-        {getGreetingMessage()}
-      </div>
+      <div className="opacity-85 text-accent">{getGreetingMessage()}</div>
       <div className="ml-4 w-full text-center text-5xl tabular-nums">
         <span ref={clockRef} className={satoshi_bold.className} />
-        <span className="text-base font-bold text-[var(--accent)]">
+        <span className="text-accent text-base font-bold">
           {getTimezoneName()}
         </span>
       </div>

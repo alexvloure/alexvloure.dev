@@ -20,7 +20,7 @@ export function ExperienceItem({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2">
-        <div className="flex min-h-[56px] min-w-[56px] items-center rounded-lg bg-zinc-800">
+        <div className="flex min-h-[56px] min-w-[56px] items-center rounded-[0.5rem] bg-zinc-800">
           <Image
             src={image}
             loading="eager"

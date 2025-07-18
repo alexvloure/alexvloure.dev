@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "crons": [
+    {
+      "path": "/api/spotify/unfollow-old-playlists",
+      "schedule": "0 2 * * *"
+    }
+  ]
+}
