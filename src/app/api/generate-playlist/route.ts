@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
             },
             {
               role: "user",
-              content: `The user is feeling: "${mood}". Create a playlist of exactly ${numberOfSongs} songs that match this mood. The genre must be ${genre}. Please, make sure to just include songs in ${requestedLang}.`,
+              content: `Mood: "${mood}". Number of songs: ${numberOfSongs}. Genre: ${genre}. Language(s): ${requestedLang}.`,
             },
           ],
           response_format: {
