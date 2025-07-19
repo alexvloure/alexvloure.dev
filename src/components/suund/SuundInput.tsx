@@ -96,8 +96,8 @@ export default function SuundInput({ onSubmit, isLoading }: SuundInputProps) {
 
   return (
     <div
-      className="w-full rounded-[28px] border border-gray-300 bg-[#ffffff] pb-3
-        dark:border-gray-700 dark:bg-[#3B3B3B]"
+      className="mx-auto w-full max-w-[532px] rounded-[28px] border border-gray-300 bg-[#ffffff]
+        pb-3 dark:border-gray-700 dark:bg-[#3B3B3B]"
     >
       <div className="relative flex w-full flex-col items-center justify-center">
         <textarea
