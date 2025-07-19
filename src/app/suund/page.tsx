@@ -50,12 +50,12 @@ export default function Suund() {
         <span className="mt-1 text-[12px] font-semibold">HOME</span>
       </Link>
       <div className="flex flex-1 flex-col justify-center gap-8 px-2">
-        <main className="flex justify-center">
+        <main className="flex h-[100svh] justify-center">
           <div
             className="border-gray-30 mx-auto flex min-h-[400px] w-full max-w-[600px] flex-col
               items-center justify-center rounded-2xl"
           >
-            <div className="flex h-full w-full flex-col items-center justify-start gap-4 px-6 py-8">
+            <div className="mt-16 flex h-full w-full flex-col items-center justify-center gap-4 px-6">
               <h4 className="text-accent text-[64px] font-semibold leading-[normal]">
                 suund
               </h4>
@@ -109,7 +109,7 @@ export default function Suund() {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: 0.2 }}
-                          className="flex max-h-[300px] flex-col gap-3 overflow-y-auto pr-2"
+                          className="flex max-h-[30svh] flex-col gap-3 overflow-y-auto pr-2"
                         >
                           {playlist?.tracks?.map((song, index) => (
                             <SongItem
