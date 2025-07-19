@@ -67,7 +67,7 @@ export default function Suund() {
 
               <SuundInput onSubmit={handleMutate} isLoading={isLoading} />
 
-              <div className="relative mt-10 w-[calc(100%-2px)] max-w-[532px] self-center">
+              <div className="relative mt-6 w-[calc(100%-2px)] max-w-[532px] self-center">
                 <AnimatePresence mode="sync">
                   <motion.div
                     key={getCurrentState()}
@@ -124,7 +124,7 @@ export default function Suund() {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.5, duration: 0.4 }}
-                          className="mt-8 flex items-center justify-self-center"
+                          className="mt-6 flex items-center justify-self-center"
                         >
                           <a
                             href={playlist?.url}
