@@ -26,6 +26,8 @@ export async function POST(req: NextRequest) {
       collaborative: false,
     });
 
+    console.log("Playlist created:", response);
+
     return NextResponse.json(
       {
         message: "Playlist created successfully",
@@ -34,9 +36,9 @@ export async function POST(req: NextRequest) {
       },
       { status: 201 },
     );
-  } catch (error) {
+  } catch (err) {
     return NextResponse.json(
-      { error: "Failed to create playlist" },
+      { message: "Failed to create playlist", error: err },
       { status: 500 },
     );
   }
