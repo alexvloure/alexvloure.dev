@@ -72,6 +72,7 @@ export async function POST(req: NextRequest) {
     );
 
     const parsedResponse = await response.json();
+    console.log("LLM Response:", parsedResponse);
     const dataText = parsedResponse.choices[0]?.message?.content;
 
     let data;
@@ -86,6 +87,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(data, { status: 200 });
   } catch (err) {
+    console.log("Error fetching playlist:", err);
     return NextResponse.json(
       { error: "Failed to fetch playlist" },
       { status: 500 },
