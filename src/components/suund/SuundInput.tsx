@@ -176,7 +176,7 @@ export default function SuundInput({ onSubmit, isLoading }: SuundInputProps) {
             className="flex w-full flex-col items-center justify-center"
           >
             <div className="my-4 h-[1px] w-[60%] bg-[#c6c6c6] dark:bg-[#757a7c]" />
-            <div className="grid w-full grid-cols-1 gap-4 overflow-hidden px-4 md:grid-cols-2">
+            <div className="grid w-full grid-cols-1 gap-4 px-4 md:grid-cols-2">
               <div className="flex h-9 w-full items-center justify-between">
                 <div
                   className="flex items-center gap-2 px-2 font-[system-ui] text-sm font-normal text-gray-600
@@ -237,16 +237,6 @@ export default function SuundInput({ onSubmit, isLoading }: SuundInputProps) {
                   })}
                 </div>
               </div>
-              {/* <div className="flex h-9 w-full items-center justify-between md:min-w-[215px]">
-                <span className="font-[system-ui] text-sm font-normal text-gray-600 dark:text-[#c5cbd0]">
-                  Genre
-                </span>
-                <ComboBox
-                  value={genreValue}
-                  onChange={setGenreValue}
-                  options={genres}
-                />
-              </div> */}
             </div>
           </motion.div>
         )}
