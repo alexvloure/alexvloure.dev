@@ -70,6 +70,12 @@ body {
   color: hsl(var(--foreground));
   background-color: hsl(var(--background));
   height: 100%;
+
+  .lock-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
 }
 
 ::selection {

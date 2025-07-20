@@ -24,3 +24,9 @@ export type EnrichedSong = {
   previewUrl?: string;
   albumImage?: string;
 };
+
+export type Playlist = {
+  name: string;
+  tracks: EnrichedSong[];
+  url: string;
+};
