@@ -17,7 +17,7 @@ export const Card = ({
 }) => {
   return (
     <div
-      className={`group relative overflow-hidden rounded-lg ${className} p-6`}
+      className={`group relative flex items-end overflow-hidden rounded-lg ${className} p-6`}
     >
       {renderContent && renderContent()}
       <div
