@@ -52,9 +52,9 @@ export async function GET() {
         );
       });
     }
-  } catch (error) {
+  } catch (err) {
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { message: "Internal Server Error", error: err },
       {
         status: 500,
       },

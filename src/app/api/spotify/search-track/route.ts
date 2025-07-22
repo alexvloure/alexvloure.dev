@@ -21,7 +21,10 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(recentTrack.body.tracks?.items[0]);
   } catch (err) {
-    console.log("Something went wrong!", err);
+    return NextResponse.json(
+      { message: "Failed to search track", error: err },
+      { status: 500 },
+    );
     return NextResponse.error();
   }
 }
