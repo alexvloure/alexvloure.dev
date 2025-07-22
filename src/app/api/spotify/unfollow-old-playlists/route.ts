@@ -1,18 +1,12 @@
-import SpotifyWebApi from "spotify-web-api-node";
 import { NextResponse } from "next/server";
-
-const api = new SpotifyWebApi({
-  clientId: process.env.SPOTIFY_SUUND_CLIENT_ID,
-  clientSecret: process.env.SPOTIFY_SUUND_CLIENT_SECRET,
-});
+import { getSpotifyAccessToken, spotifyApi } from "@/lib/spotify";
 
 export async function GET() {
   try {
-    api.setRefreshToken(process.env.SPOTIFY_SUUND_REFRESH_TOKEN!);
-    const data = await api.refreshAccessToken();
-    api.setAccessToken(data.body["access_token"]);
+    const token = await getSpotifyAccessToken();
+    spotifyApi.setAccessToken(token);
 
-    const playlists = await api.getUserPlaylists();
+    const playlists = await spotifyApi.getUserPlaylists();
 
     if (!playlists || !playlists.body.items) {
       return NextResponse.json(
@@ -24,7 +18,7 @@ export async function GET() {
     const oldPlaylists = (
       await Promise.allSettled(
         playlists.body.items.map(async (playlist) => {
-          const tracks = await api.getPlaylistTracks(playlist.id);
+          const tracks = await spotifyApi.getPlaylistTracks(playlist.id);
           const today = new Date();
           if (!tracks.body.items.length) return null;
           const timeDiff =
@@ -45,7 +39,7 @@ export async function GET() {
       );
     } else {
       oldPlaylists.forEach(async (playlist) => {
-        await api.unfollowPlaylist(
+        await spotifyApi.unfollowPlaylist(
           playlist.status === "fulfilled" && playlist.value !== null
             ? playlist.value.id
             : "",
