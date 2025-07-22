@@ -7,6 +7,7 @@ export type GeneratePlaylistRequest = {
 
 export type GeneratePlaylistResponse = {
   name: string;
+  description: string;
   tracks: Song[];
 };
 

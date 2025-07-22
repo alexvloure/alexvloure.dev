@@ -34,11 +34,12 @@ const fetchGeneratePlaylist = async ({
   return await response.json();
 };
 
-const fetchCreatePlaylist = async (name: string) => {
+const fetchCreatePlaylist = async (name: string, description: string) => {
   const response = await fetch("/api/spotify/create-playlist", {
     method: "POST",
     body: JSON.stringify({
       name,
+      description,
     }),
   });
   if (!response.ok) {
@@ -114,6 +115,7 @@ export const useGeneratePlaylist = () => {
 
         const { playlistId, playlistUrl } = await fetchCreatePlaylist(
           data.name,
+          data.description,
         );
 
         await fetchAddTracksToPlaylist(

@@ -2,13 +2,13 @@ import SpotifyWebApi from "spotify-web-api-node";
 import { NextResponse } from "next/server";
 
 const api = new SpotifyWebApi({
-  clientId: process.env.SPOTIFY_SUUND2_CLIENT_ID,
-  clientSecret: process.env.SPOTIFY_SUUND2_CLIENT_SECRET,
+  clientId: process.env.SPOTIFY_SUUND_CLIENT_ID,
+  clientSecret: process.env.SPOTIFY_SUUND_CLIENT_SECRET,
 });
 
 export async function GET() {
   try {
-    api.setRefreshToken(process.env.SPOTIFY_SUUND2_REFRESH_TOKEN!);
+    api.setRefreshToken(process.env.SPOTIFY_SUUND_REFRESH_TOKEN!);
     const data = await api.refreshAccessToken();
     api.setAccessToken(data.body["access_token"]);
 

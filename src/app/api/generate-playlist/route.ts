@@ -48,6 +48,10 @@ export async function POST(req: NextRequest) {
                 type: "object",
                 properties: {
                   name: { type: "string", description: "Playlist name" },
+                  description: {
+                    type: "string",
+                    description: "Playlist description",
+                  },
                   tracks: {
                     type: "array",
                     items: {
