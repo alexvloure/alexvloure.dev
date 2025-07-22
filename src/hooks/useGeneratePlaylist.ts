@@ -96,18 +96,9 @@ export const useGeneratePlaylist = () => {
     const getEnrichedSongs = async () => {
       try {
         const tracks = await Promise.allSettled(
-          data.tracks.map(async ({ title, artist }) => {
-            const result = await fetchSpotifyTrack(title, artist);
-            return {
-              title,
-              artist,
-              album: result?.album?.name,
-              durationMs: result?.duration_ms,
-              spotifyId: result?.id,
-              previewUrl: result?.preview_url,
-              albumImage: result?.album?.images?.[0]?.url,
-            };
-          }),
+          data.tracks.map(
+            async ({ title, artist }) => await fetchSpotifyTrack(title, artist),
+          ),
         );
         const enrichedSongs = tracks
           .filter((r) => r.status === "fulfilled")
