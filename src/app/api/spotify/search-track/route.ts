@@ -1,11 +1,6 @@
+import { getSpotifyAccessToken, spotifyApi } from "@/lib/spotify";
 import { cacheSong, getCachedSong } from "@/utils/trackCache";
 import { NextRequest, NextResponse } from "next/server";
-import SpotifyWebApi from "spotify-web-api-node";
-
-const api = new SpotifyWebApi({
-  clientId: process.env.SPOTIFY_SUUND_CLIENT_ID,
-  clientSecret: process.env.SPOTIFY_SUUND_CLIENT_SECRET,
-});
 
 export async function GET(req: NextRequest) {
   const track = req.nextUrl.searchParams.get("track");
@@ -23,11 +18,10 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(cached);
   } else {
     try {
-      api.setRefreshToken(process.env.SPOTIFY_SUUND_REFRESH_TOKEN!);
-      const data = await api.refreshAccessToken();
-      api.setAccessToken(data.body["access_token"]);
+      const token = await getSpotifyAccessToken();
+      spotifyApi.setAccessToken(token);
 
-      const recentTrack = await api.searchTracks(
+      const recentTrack = await spotifyApi.searchTracks(
         `track:${track} artist:${artist}`,
       );
 
