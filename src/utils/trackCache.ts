@@ -16,5 +16,5 @@ export async function getCachedSong(
 
 export async function cacheSong(song: EnrichedSong) {
   const key = buildKey(song.title, song.artist);
-  await redis.set(key, song, { ex: 60 * 60 * 24 * 30 * 6 }); // 6 months
+  await redis.set(key, song);
 }

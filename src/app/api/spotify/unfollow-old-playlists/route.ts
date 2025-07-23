@@ -1,12 +1,11 @@
+import { getSpotifyClient, SpotifyAccount } from "@/lib/spotify";
 import { NextResponse } from "next/server";
-import { getSpotifyAccessToken, spotifyApi } from "@/lib/spotify";
 
 export async function GET() {
   try {
-    const token = await getSpotifyAccessToken();
-    spotifyApi.setAccessToken(token);
+    const client = await getSpotifyClient(SpotifyAccount.SUUND);
 
-    const playlists = await spotifyApi.getUserPlaylists();
+    const playlists = await client.getUserPlaylists();
 
     if (!playlists || !playlists.body.items) {
       return NextResponse.json(
@@ -18,7 +17,7 @@ export async function GET() {
     const oldPlaylists = (
       await Promise.allSettled(
         playlists.body.items.map(async (playlist) => {
-          const tracks = await spotifyApi.getPlaylistTracks(playlist.id);
+          const tracks = await client.getPlaylistTracks(playlist.id);
           const today = new Date();
           if (!tracks.body.items.length) return null;
           const timeDiff =
@@ -38,13 +37,11 @@ export async function GET() {
         { status: 200 },
       );
     } else {
-      oldPlaylists.forEach(async (playlist) => {
-        await spotifyApi.unfollowPlaylist(
-          playlist.status === "fulfilled" && playlist.value !== null
-            ? playlist.value.id
-            : "",
-        );
-      });
+      for (const result of oldPlaylists) {
+        if (result.status === "fulfilled" && result.value?.id) {
+          await client.unfollowPlaylist(result.value.id);
+        }
+      }
     }
   } catch (err) {
     return NextResponse.json(

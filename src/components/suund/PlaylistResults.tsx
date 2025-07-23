@@ -42,7 +42,7 @@ export function PlaylistResults({ playlist }: PlaylistResultsProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.4 }}
-        className="sticky bottom-0 flex items-center justify-center py-2"
+        className="sticky bottom-0 my-2 flex items-center justify-center py-2"
       >
         <a
           href={playlist?.url}

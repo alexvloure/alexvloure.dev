@@ -1,4 +1,4 @@
-import { getSpotifyAccessToken, spotifyApi } from "@/lib/spotify";
+import { getSpotifyClient, SpotifyAccount } from "@/lib/spotify";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -12,10 +12,9 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const token = await getSpotifyAccessToken();
-    spotifyApi.setAccessToken(token);
+    const client = await getSpotifyClient(SpotifyAccount.SUUND);
 
-    const response = await spotifyApi.createPlaylist(name, {
+    const response = await client.createPlaylist(name, {
       description: description,
       collaborative: false,
     });

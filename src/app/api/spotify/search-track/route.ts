@@ -1,4 +1,4 @@
-import { getSpotifyAccessToken, spotifyApi } from "@/lib/spotify";
+import { getSpotifyClient, SpotifyAccount } from "@/lib/spotify";
 import { cacheSong, getCachedSong } from "@/utils/trackCache";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -18,10 +18,9 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(cached);
   } else {
     try {
-      const token = await getSpotifyAccessToken();
-      spotifyApi.setAccessToken(token);
+      const client = await getSpotifyClient(SpotifyAccount.SUUND);
 
-      const recentTrack = await spotifyApi.searchTracks(
+      const recentTrack = await client.searchTracks(
         `track:${track} artist:${artist}`,
       );
 

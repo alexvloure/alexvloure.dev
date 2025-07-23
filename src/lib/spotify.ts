@@ -1,28 +1,49 @@
+// lib/spotify.ts
 import SpotifyWebApi from "spotify-web-api-node";
 
-let cachedAccessToken: string | null = null;
-let accessTokenExpiresAt = 0;
+export enum SpotifyAccount {
+  SUUND = "suund",
+  ALEX = "alex",
+}
 
-export const spotifyApi = new SpotifyWebApi({
-  clientId: process.env.SPOTIFY_SUUND_CLIENT_ID!,
-  clientSecret: process.env.SPOTIFY_SUUND_CLIENT_SECRET!,
-});
+const clients: Record<SpotifyAccount, SpotifyWebApi> = {
+  suund: new SpotifyWebApi({
+    clientId: process.env.SPOTIFY_SUUND_CLIENT_ID!,
+    clientSecret: process.env.SPOTIFY_SUUND_CLIENT_SECRET!,
+  }),
+  alex: new SpotifyWebApi({
+    clientId: process.env.SPOTIFY_ALEX_CLIENT_ID!,
+    clientSecret: process.env.SPOTIFY_ALEX_CLIENT_SECRET!,
+  }),
+};
 
-spotifyApi.setRefreshToken(process.env.SPOTIFY_SUUND_REFRESH_TOKEN!);
+clients.suund.setRefreshToken(process.env.SPOTIFY_SUUND_REFRESH_TOKEN!);
+clients.alex.setRefreshToken(process.env.SPOTIFY_ALEX_REFRESH_TOKEN!);
 
-export async function getSpotifyAccessToken(): Promise<string> {
+const tokenCache: Record<
+  SpotifyAccount,
+  { token: string | null; expires: number }
+> = {
+  suund: { token: null, expires: 0 },
+  alex: { token: null, expires: 0 },
+};
+
+export async function getSpotifyClient(
+  account: SpotifyAccount,
+): Promise<SpotifyWebApi> {
   const now = Date.now();
+  const client = clients[account];
+  const cache = tokenCache[account];
 
-  if (cachedAccessToken && now < accessTokenExpiresAt) {
-    return cachedAccessToken;
+  if (!cache.token || now >= cache.expires) {
+    const data = await client.refreshAccessToken();
+    const token = data.body.access_token;
+    const expiresIn = data.body.expires_in * 1000;
+
+    cache.token = token;
+    cache.expires = now + expiresIn;
   }
 
-  const data = await spotifyApi.refreshAccessToken();
-  const accessToken = data.body.access_token;
-  const expiresIn = data.body.expires_in * 1000; // expires_in is in seconds
-
-  cachedAccessToken = accessToken;
-  accessTokenExpiresAt = now + expiresIn;
-
-  return accessToken;
+  client.setAccessToken(cache.token);
+  return client;
 }
