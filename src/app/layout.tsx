@@ -6,7 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { mersad } from "../styles/fonts";
 
 export const metadata: Metadata = {
-  title: "alexvloure | Frontend developer",
+  title: "alexvloure | Frontend engineer",
   description: "Made with 🖤",
 };
 

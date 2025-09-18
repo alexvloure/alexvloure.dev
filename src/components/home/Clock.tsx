@@ -39,12 +39,6 @@ export function Clock() {
   useLayoutEffect(() => {
     function updateTime() {
       const now = new Date();
-      // const hours = now.getHours();
-      // const minutes = now.getMinutes();
-      // const seconds = now.getSeconds();
-      // const clockStr = `${hours.toString().padStart(2, '0')}:${minutes
-      //   .toString()
-      //   .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
       if (clockRef.current) {
         clockRef.current.innerText = format(now, "HH:mm:ss");
@@ -52,7 +46,9 @@ export function Clock() {
     }
 
     updateTime();
-    setInterval(updateTime, 1000);
+    const intervalId = setInterval(updateTime, 1000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
@@ -63,7 +59,7 @@ export function Clock() {
       <div className="opacity-85 text-accent">{getGreetingMessage()}</div>
       <div className="ml-4 w-full text-center text-5xl tabular-nums">
         <span ref={clockRef} className={satoshi_bold.className} />
-        <span className="text-accent text-base font-bold">
+        <span className="text-base font-bold text-accent">
           {getTimezoneName()}
         </span>
       </div>

@@ -1,4 +1,4 @@
-import { GeneratePlaylistResponse, Playlist } from "@/app/types/Playlist";
+import { Playlist } from "@/app/types/Playlist";
 import { motion } from "motion/react";
 import SongItem from "./SongItem";
 import { FaSpotify } from "react-icons/fa";
@@ -45,9 +45,10 @@ export function PlaylistResults({ playlist }: PlaylistResultsProps) {
         className="sticky bottom-0 my-2 flex items-center justify-center py-2"
       >
         <a
+          role="link"
           href={playlist?.url}
           target="_blank"
-          className="bg-accent inline-flex items-center space-x-2 rounded-full px-6 py-2 font-medium
+          className="inline-flex items-center space-x-2 rounded-full bg-accent px-6 py-2 font-medium
             text-white transition-colors duration-200 only-hover:hover:bg-[#6C757D]
             dark:text-black dark:only-hover:hover:bg-white"
         >
